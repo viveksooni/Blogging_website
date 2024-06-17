@@ -1,0 +1,8 @@
+name = "backend"
+compatibility_date = "2023-12-01"
+
+[vars]
+#This is connection pool url 
+DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiOGJhOWZlNzktYTZkZi00ZjMzLWI0ODQtYjExYjJhYTkxMWExIiwidGVuYW50X2lkIjoiOWZkYmUzMTYxOWY5MWMzOTZiYzhkZTU2OTBlMGU1ZjMzMzZmYTQxM2U3MzA0ODdkZjMyNjEzNzk5N2Q2YWMwYSIsImludGVybmFsX3NlY3JldCI6IjU3ZTMxMzE0LTJiM2MtNGU3ZS1iYmNhLWQwMDNkZWZmMDU3ZSJ9.E954yzy0k9OiR-QGzmX0jiwsU2igQkO915Ya97bc3a0"
+
+JWT_secret = "vivek"
