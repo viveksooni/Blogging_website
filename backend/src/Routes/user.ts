@@ -1,9 +1,12 @@
 import { PrismaClient } from "@prisma/client/edge";
 import { withAccelerate } from "@prisma/extension-accelerate";
-import {Hono} from "hono";
+import { Hono } from "hono";
 import { sign } from "hono/jwt";
+import { signUpInput } from "@sonivivek346/common-medium365"
 
-export const  userRoute = new Hono<{Bindings:{DATABASE_URL: string, JWT_secret:string}}>();
+export const userRoute = new Hono<{
+  Bindings: { DATABASE_URL: string; JWT_secret: string };
+}>();
 
 //signup
 userRoute.post("/signup", async (c) => {
@@ -12,6 +15,16 @@ userRoute.post("/signup", async (c) => {
   }).$extends(withAccelerate());
 
   const body = await c.req.json();
+  console.log(body)
+  const success = signUpInput.safeParse(body).success;
+  console.log(success)
+  if (!success) {
+
+    c.status(411);
+    return c.json({
+      message: "Inputs are incorrect",
+    });
+  }
   //zod and hasing of password
   try {
     const user = await prisma.user.create({
